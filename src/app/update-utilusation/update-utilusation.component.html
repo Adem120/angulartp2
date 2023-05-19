@@ -1,0 +1,10 @@
+
+
+<form>
+    <div>
+        <label>Nom Categorie</label>
+        <input  type="text" [(ngModel)]="utl"  name="nomUtilisation" class="form-control" placeholder="Enter une Utilusation">
+
+    </div>
+    <div class="mt-2"><button type="submit" [disabled]="!utl" class="btn btn-success" (click)="saveUtilusation()">Ajouter</button> </div>
+</form>

@@ -1,0 +1,92 @@
+
+@import "../home/home.component.scss";
+
+/***********************
+ * Essential Structure *
+ ***********************/
+ .flexsearch--wrapper {
+	height:auto;
+	width: auto;
+	max-width: 50%;
+	overflow: hidden;
+	background: transparent;
+	margin: 0;
+	position:relative;
+  left:30%
+  
+}
+	
+.flexsearch--form {
+	overflow: hidden;
+	position: relative;
+}
+	
+.flexsearch--input-wrapper {
+	padding: 0 66px 0 0; /* Right padding for submit button width */
+	overflow: hidden;
+}
+
+.flexsearch--input {
+  width: 70%;
+}
+
+/***********************
+ * Configurable Styles *
+ ***********************/
+.flexsearch {
+  padding: 0 25px 0 550px; /* Padding for other horizontal elements */
+}
+
+.flexsearch--input {
+  -webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+ 	height: 30px;
+  padding: 0 46px 0 10px;
+	border-color: #888;
+  border-radius: 35px; /* (height/2) + border-width */
+  border-style: solid;
+	border-width: 5px;
+  margin-top: 15px;
+  color: #333;
+  font-family: 'Helvetica', sans-serif;
+	font-size: 26px;
+	
+
+}
+	
+
+
+.flexsearch--input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+
+
+
+::-webkit-input-placeholder {
+	color: #888;  
+}
+
+input:-moz-placeholder {
+  color: #888
+}
+
+
+/****************
+ * Pretify demo *
+ ****************/
+.h1 {
+  float: left;
+  margin: 25px;
+  color: #333;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 45px;
+  text-align: center;
+}
+table {
+    width: 100%;
+  }

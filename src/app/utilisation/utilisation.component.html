@@ -1,0 +1,22 @@
+<div class="container">
+    <app-update-utilusation>
+    [ajout]="ajout"
+    </app-update-utilusation>
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th> Utilisaton</th></tr>
+    <tbody *ngFor="let utl of utilusations">
+    <tr >
+     <th>{{utl.idutili}}</th>
+     <th>{{utl.nomUtilisation}}</th>
+     <th><a *ngIf="authService.isAdmin()" class="btn btn-danger m-2" (click)="supprimerUtl(utl)"> <i class="bi bi-trash"></i></a>
+        <th><a *ngIf="authService.isAdmin()" class="btn btn-primary m-2" [routerLink]="['/utilisation/',utl.idutili]"> <i class="bi bi-pencil-square"></i></a>
+     </th>
+    </tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div>

@@ -1,0 +1,53 @@
+
+<h2>Ajouter une Machine :</h2>
+    
+<div mat-dialog-content>
+   
+  <mat-form-field class="example-full-width">
+    <mat-label>Nom</mat-label>
+    <input matInput [(ngModel)]="currentMachine.nom" required>
+  </mat-form-field>
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Prix</mat-label>
+      <input type="number"matInput [(ngModel)]="currentMachine.prix" required>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Date</mat-label>
+      <input type="date" matInput [ngModel]="currentMachine.dateachat | date:'yyyy-MM-dd'" required>
+    </mat-form-field></td>
+  </tr></table>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label >Utilisation</mat-label>
+
+      <mat-select matInput [(ngModel)]="id" required>
+        <mat-option [value]="currentMachine.utulisation.idutili">{{currentMachine.utulisation.nomUtilisation}}</mat-option>
+      <mat-option *ngFor="let d of utlisation" [value]="d.idutili"> {{d.nomUtilisation}}</mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+        <div class="col-sm-16 col-md-16 col-lg-16">
+           <label class="mb-2">Image :</label>
+           <input type="file" (change)="onImageUpload($event)"
+           name="logo" class="form-control">
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+      <img [src]="myImage" class="card-img-top img-fluid rounded-start"
+style="width: 500px; height: 300px" />
+</div>
+
+      </div>
+      
+<div mat-dialog-actions [align]="'end'">
+<button mat-raised-button color="primary" (click)="updateMachine()" > Modifier
+   
+</button>
+<button mat-raised-button color="warn" mat-dialog-close="">Annuler</button>
+
+ 
+</div>
+  
