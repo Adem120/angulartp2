@@ -18,7 +18,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class MachineComponent implements OnInit {
   machine! : Machine[];
-
+  update:Boolean=false;
   displayedColumns: string[] = [ 'id','Machine', 'Prix','dateachat', 'utilusation','image','Action'];
   dataSource = new MatTableDataSource<Machine>();
     constructor(private machineservice: MachineServices ,private router:Router,public authService:AuthService,private dialog:MatDialog) {
@@ -86,7 +86,15 @@ openDialog(){
        height:'30%',
        top:'500px'}
       }
-        );}
+        ).afterClosed().subscribe(result => {
+          this.ngOnInit();
+          this.ngAfterViewInit();
+        })
+        }
+      
+      
+      
+      
         opendialog(id:number){
         
           this.dialog.open(UpdateMachineComponent,{ 
@@ -96,5 +104,14 @@ openDialog(){
               height:'30%',
               top:'500px'}
             }
-              );}
+              ).afterClosed().subscribe(result =>{
+                this.update=true
+                setTimeout(() => {
+                  this.ngOnInit();
+                  this.ngAfterViewInit()
+                  this.update=false
+                }, 2000);
+              
+              })
+            }
   }

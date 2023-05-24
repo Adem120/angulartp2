@@ -74,6 +74,9 @@ export class AuthService {
     localStorage.setItem('loggedUser', this.loggedUser);
     localStorage.setItem('isloggedIn', String(this.isloggedIn));
   }
+  signup(user: User) {
+    return this.http.post(this.apiURL + '/register', user, httpOptions);
+  }
 
 
   isAdmin(): Boolean {

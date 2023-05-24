@@ -13,7 +13,6 @@
         <li class="nav-item dropdown">
           <a *ngIf="authService.isloggedIn" class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Machine</a>
           <div class="dropdown-menu">
-            <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="add-machine">Ajouter</a>
             <a class="dropdown-item" routerLink="machine">Lister</a>
             <a class="dropdown-item" routerLink="recherche-par-categorie">Rechercher Par categorie</a>
             <a class="dropdown-item" routerLink="recherche-par-nom">Rechercher Par Nom</a>

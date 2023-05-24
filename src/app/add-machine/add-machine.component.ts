@@ -19,16 +19,20 @@ export class AddMachineComponent implements OnInit {
   uploadedImage!: File;
 imagePath: any;
 trouve:boolean=false;
+ajoute:boolean=false
   constructor(private machineService: MachineServices,private activatedRoute: ActivatedRoute,private router:Router,private snack:MatSnackBar,private dialog:MatDialogRef<AddMachineComponent>) { }
   addMachine(){
+    
     this.machineService
 .uploadImage(this.uploadedImage, this.uploadedImage.name)
 .subscribe((img: Image) => {
 this.newMachine.image = img;
     this.newMachine.utulisation = this.utlisation.find(utilusation => utilusation.idutili == this.id)!;
-    console.log(this.newMachine.utulisation)
+    this.ajoute=true
+    setTimeout(() => {
   this.machineService.ajouterMachine(this.newMachine).subscribe(data =>this.handelsucess(data));
-this.dialog.close();
+  this.ajoute=false
+this.dialog.close();},2500)
 
 
 });
