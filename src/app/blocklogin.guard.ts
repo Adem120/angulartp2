@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './services/auth.service';
 
@@ -7,7 +7,7 @@ import { AuthService } from './services/auth.service';
   providedIn: 'root'
 })
 
-export class BlockloginGuard implements CanActivate,OnInit {
+export class BlockloginGuard  implements OnInit {
 
   constructor(private authservice:AuthService,private router:Router){}
   ngOnInit() {
