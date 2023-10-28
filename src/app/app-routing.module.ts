@@ -12,19 +12,23 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
 import { UpdateMachineComponent } from './update-machine/update-machine.component';
 import { UtilisationComponent } from './utilisation/utilisation.component';
 import { RegisterComponent } from './register/register.component';
+import { UsersComponent } from './users/users.component';
+import { VerifierCompteComponent } from './verifier-compte/verifier-compte.component';
 
 const routes: Routes = [
   {path:"machine",component:MachineComponent,},
   {path:"add-machine",component:AddMachineComponent,canActivate:[MachineGuard]},
   {path:"update-machine/:id",component:UpdateMachineComponent,canActivate:[MachineGuard]},
-  {path:"",redirectTo:"machine",pathMatch:"full"},
+  {path:"",redirectTo:"login",pathMatch:"full"},
   {path:"utilisation",component:UtilisationComponent},
   {path:"login",component:LoginComponent,canActivate:[BlockloginGuard]},
   {path:"recherche-par-categorie",component:RechercheParCategorieComponent},
   {path:"app-forbidden",component:ForbiddenComponent},
   {path:"recherche-par-nom",component:RechercheParNomComponent},
   {path:"utilisation/:id",component:UtilisationComponent},
-  {path:"login/register",component:RegisterComponent}
+  {path:"login/register",component:RegisterComponent},
+  {path:"users",component:UsersComponent,canActivate:[MachineGuard]},
+  {path:"verifierCompte/:email",component:VerifierCompteComponent},
 ];
 
 @NgModule({

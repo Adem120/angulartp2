@@ -68,8 +68,7 @@ export class MachineComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
   this.machineservice.supprimerMachine(machin.idMachine).subscribe(() => {
-
-  console.log("produit supprimé");
+this.ngAfterViewInit()
   });
  
   }

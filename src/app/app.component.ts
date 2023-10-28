@@ -16,8 +16,10 @@ constructor(public authService: AuthService , private router: Router) { }
 
   ngOnInit() {
     this.authService.loadToken()
-    if(!this.authService.getToken()){
-      this.router.navigate(['login'])
+    console.log(window.location.href.split('/')[3]!== 'verifierCompte')
+    if(!this.authService.getToken() ){
+      if( window.location.href.split('/')[3]!='verifierCompte')
+      this.router.navigate(['login']);
      }
     
    this.router.events.pipe(

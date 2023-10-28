@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 import { Role } from '../model/role.models';
 import { User } from '../model/user.models';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -75,7 +75,7 @@ export class AuthService {
     localStorage.setItem('isloggedIn', String(this.isloggedIn));
   }
   signup(user: User) {
-    return this.http.post(this.apiURL + '/register', user, httpOptions);
+    return this.http.post(this.apiURL + '/users/register', user, httpOptions);
   }
 
 
@@ -84,6 +84,39 @@ export class AuthService {
       return false;
     return this.roles.indexOf('ADMIN') >= 0;
   }
+  getUser(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiURL + '/users/all');
+  } 
+  deleteUser(id:number){
+   return this.http.delete(this.apiURL+'/users/'+id) 
+    
 
+}
+getuser(id:number){
+  return this.http.get(this.apiURL+'/users/'+id)
+}
+updateuser(user:User){
+  return this.http.put(this.apiURL+'/users',user)
+}
+getRoles():Observable<Role[]>{
+  console.log("aaaaaa"+this.http.get<Role[]>(this.apiURL+'/users/roles').subscribe(data=>console.log(data)));
+  return this.http.get<Role[]>(this.apiURL+'/users/roles')
 
+}
+getUserbyname(name:string):Observable<User>{
+  return this.http.get<User>(this.apiURL+'/users/user/'+name)
+}
+
+verifiercompte(email:string,code :string){
+  return this.http.get(`${this.apiURL}/users/verifier?email=${email}&code=${code}`);
+}
+findUser(email:string){
+  return this.http.get<User>(this.apiURL+'/users/verifier/'+email)
+}
+blokedUser(id:number){
+  return this.http.get(`${this.apiURL}/users/block/${id}`);
+}
+deblokedUser(id:number){
+  return this.http.get(`${this.apiURL}/users/unblock/${id}`);
+}
 }

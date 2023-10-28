@@ -1,0 +1,35 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Username</th>
+        <th scope="col">Roles</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let utl of Users">
+      <tr>
+        <td>{{ utl.id }}</td>
+        <td>{{ utl.username }}</td>
+        <td>
+          <table>
+            <tr *ngFor="let role of utl.roles">
+              <td>{{ role.name }}</td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <button class="btn btn-success" *ngIf="utl.enabled === 'active'" (click)="bloked(utl.id)">Enabled</button>
+          <button class="btn btn-success" *ngIf="utl.enabled === 'not verified'" (click)="bloked(utl.id)">Enabled</button>
+
+          <button class="btn btn-danger" *ngIf="utl.enabled === 'blocked'" (click)="deploked(utl.id)">Disabled</button>
+        </td>
+        <td>
+          <button class="btn btn-danger m-1" (click)="deleteuser(utl.id)">Delete</button>
+          <button class="btn btn-primary" (click)="opendialog(utl.id)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

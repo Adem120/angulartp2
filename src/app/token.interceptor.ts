@@ -15,10 +15,13 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    const g = "/login";
-    const h = "/register";
-    if(request.url.search(g) ==1 || request.url.search(h) == -1){
+    const g=[
+      'login',
+      'verifier',
+      'register'
     
+    ]
+    if(!g.includes(request.url.split('/')[4]) || !g.includes(request.url.split('/')[4])) {
         let jwt = this.authService.getToken();
     let reqWithToken = request.clone( {
     setHeaders: { Authorization : "Bearer "+jwt}

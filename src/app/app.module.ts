@@ -28,8 +28,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
-
-
+import { UsersComponent } from './users/users.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { VerifierCompteComponent } from './verifier-compte/verifier-compte.component';
+import { ModalLoadinComponent } from './modal-loadin/modal-loadin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +47,14 @@ import { MatIconModule } from '@angular/material/icon';
     ForbiddenComponent,
     RechercheParNomComponent,
     RegisterComponent,
+    UsersComponent,
+    EditUserComponent,
+    VerifierCompteComponent,
+    ModalLoadinComponent,
+  
+     // Add your modal component here
+
+    
 
 ],
   imports: [
@@ -62,7 +73,11 @@ import { MatIconModule } from '@angular/material/icon';
     MatProgressSpinnerModule,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+
+  
+
  
 
   ],

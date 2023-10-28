@@ -1,8 +1,10 @@
 import { Role } from "./role.models";
 
 export class User{
-    user_id!:number;
+    id!:number;
     username!:string ;
     password!: string ;
     roles!:Role[];
+    enabled!:string;
+    email!:string;
 }

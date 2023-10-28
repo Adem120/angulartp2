@@ -1,0 +1,27 @@
+
+<div class="caard">
+<div class="card w-100  left-6">
+    <div class="card-body ">
+     
+      <div class="card-actions justify-end">
+        <form class="form "> <div class="title">OTP</div>
+            <div class="title">Verification Code</div> 
+            <p class="message">We have sent a verification code to your mobile number</p> 
+            <div class="inputs"> 
+               <input id="input1" type="text" [formControl]="nb1" maxlength="1"required> 
+               <input id="input2" type="text" [formControl]="nb2" maxlength="1" required> 
+               <input id="input3" type="text" [formControl]="nb3" maxlength="1" required> 
+               <input id="input4" type="text" [formControl]="nb4" maxlength="1" required> 
+               <input id="input5" type="text" [formControl]="nb5" maxlength="1" required> 
+               <input id="input6" type="text" [formControl]="nb6" maxlength="1" required> 
+
+           </div>
+           <p class="text-danger" *ngIf=" (nb1.touched && nb1.invalid) ||(nb2.touched && nb2.invalid )||(nb3.touched && nb3.invalid) ||( nb4.touched && nb4.invalid)">Please enter 4 number</p>
+
+           <button class="action" (click)="verifierCompte()">verify me</button> </form>
+             </div>
+
+    </div>
+</div>
+  </div>
+ 

@@ -1,0 +1,37 @@
+
+<h2>Update User:</h2>
+<div>
+
+
+    
+<div class="dia" mat-dialog-content >
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Nom</mat-label>
+    <input matInput  [(ngModel)]="user.username" required>
+  </mat-form-field>
+
+  <table class="example-full-width mb-4" cellspacing="0" >
+    <tr *ngFor="let r of roles">
+    <td class="mb-2">{{r.name}}</td>
+    <td class="btn btn-danger mb-1" (click)="deleterole(r.id)">Delete</td>
+   
+  </tr></table>
+<p *ngIf="rolesuser.length>0">Ajouer un Role :</p>
+      <table class="example-full-width" cellspacing="0" >
+        <tr *ngFor="let i of rolesuser">
+        <td class="mb-2">{{i.name}}</td>
+        <td class="btn btn-success mb-1" (click)="ajouterole(i)">Ajouter</td>
+       
+      </tr></table>
+    
+          </div>
+<div mat-dialog-actions [align]="'end'">
+<button mat-raised-button color="primary" (click)="updateuser()" > Update</button>
+
+
+<button mat-raised-button color="warn" mat-dialog-close="">Annuler</button>
+
+ 
+</div>
+</div>
